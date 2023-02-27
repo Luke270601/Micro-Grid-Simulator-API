@@ -74,8 +74,6 @@ namespace Micro_Grid_Management.Micro_Grid
                             _demand = Convert.ToDouble(parameters);
                             Console.WriteLine(message.Sender + " : " + Convert.ToDouble(parameters) +
                                               " demand remaining");
-                            _packet = new Settings.Packet(message.Sender, parameters);
-                            Settings.Packets.Add(_packet);
                             SupplyFromGrid(_demand);
                             Broadcast("generate");
                             Settings.HoursRunning++;
@@ -161,6 +159,8 @@ namespace Micro_Grid_Management.Micro_Grid
             Console.WriteLine("Total From Grid: " + Settings.EnergyFromGrid);
             _packet = new Settings.Packet("Grid", "Total From Grid: " + Settings.EnergyFromGrid + " kw/h");
             Settings.Packets.Add(_packet);
+            _supply = 0;
+            _demand = 0;
         }
     }
 }

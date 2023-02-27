@@ -36,12 +36,16 @@ namespace Micro_Grid_Management.Micro_Grid
                         {
                             supplyDemand -= supply;
                             Send("GridManager", $"demand_remaining {supplyDemand}");
+                            packet = new Settings.Packet("Battery", "Remaining: " + supplyDemand);
+                            Settings.Packets.Add(packet);
                         }
 
                         else
                         {
                             supply -= supplyDemand;
                             Send("GridManager", "demand_met");
+                            packet = new Settings.Packet("Battery", "Removed: " + supplyDemand);
+                            Settings.Packets.Add(packet);
                         }
                         break;
                     
