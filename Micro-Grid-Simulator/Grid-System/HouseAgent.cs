@@ -21,11 +21,11 @@ namespace Micro_Grid_Management.Micro_Grid
                     case "generate":
                         Send("Environment", "house");
                         break;
-                    
+
                     case "inform":
                         GenerateDemand();
                         break;
-                    
+
                     case "stop":
                         Stop();
                         break;

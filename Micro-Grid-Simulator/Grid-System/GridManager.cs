@@ -38,34 +38,32 @@ namespace Micro_Grid_Management.Micro_Grid
 
                         case "supply":
                             Console.WriteLine(message.Sender + " : " + parameters);
-                            _packet = new Settings.Packet(message.Sender, parameters);
-                            Settings.Packets.Add(_packet);
                             if (message.Sender.Contains("solarPanel"))
                             {
                                 _solarPanelCount--;
                                 _supply += Convert.ToDouble(parameters);
+                                _packet = new Settings.Packet(message.Sender, parameters);
+                                Settings.Packets.Add(_packet);
                             }
 
                             else
                             {
                                 _windTurbineCount--;
                                 _supply += Convert.ToDouble(parameters);
+                                _packet = new Settings.Packet(message.Sender, parameters);
+                                Settings.Packets.Add(_packet);
                             }
 
                             break;
 
                         case "energy_stored":
                             Console.WriteLine(message.Sender + " : " + "Energy has been stored");
-                            _packet = new Settings.Packet(message.Sender, "Energy has been stored");
-                            Settings.Packets.Add(_packet);
                             Broadcast("generate");
                             Settings.HoursRunning++;
                             break;
 
                         case "demand_met":
                             Console.WriteLine(message.Sender + " : " + "Battery provided power");
-                            _packet = new Settings.Packet(message.Sender, "Battery provided power");
-                            Settings.Packets.Add(_packet);
                             Broadcast("generate");
                             Settings.HoursRunning++;
                             break;

@@ -11,12 +11,13 @@ public class Simulation : ControllerBase
 {
 
     [HttpGet]
-    public JsonResult RunSim(int duration, int turbineCount, int panelCount, int houseCount)
+    public JsonResult RunSim(int duration, int turbineCount, int panelCount, int houseCount, string monthOfTheYear)
     {
         Settings.DaysRunning = duration;
         Settings.TurbineCount = turbineCount;
         Settings.PanelCount = panelCount;
         Settings.HouseCount = houseCount;
+        Settings.MonthOfTheYear = monthOfTheYear;
         // inefficient, uses broadcast to simulate public open-cry auction
 
         //Sets up the ActressMas environment agent and the agent used to inform house agents

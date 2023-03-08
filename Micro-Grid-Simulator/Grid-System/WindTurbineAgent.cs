@@ -22,11 +22,11 @@ namespace Micro_Grid_Management.Micro_Grid
                     case "generate":
                         Send("Environment", "wind");
                         break;
-                    
+
                     case "inform":
                         GenerateOutput(Convert.ToDouble(parameters));
                         break;
-                    
+
                     case "stop":
                         Stop();
                         break;
@@ -43,7 +43,9 @@ namespace Micro_Grid_Management.Micro_Grid
         {
             //Formula P = π/2 * r² * v³ * ρ * η;
             //Wind speed is in m/s
-            _power = Math.Round((Math.PI/2 * Math.Pow(Settings.radius, 2) * Math.Pow(windSpeed, 3) * Settings.airDensity * Settings.efficiencyFactor)/1000, 3) ;
+            _power = Math.Round(
+                (Math.PI / 2 * Math.Pow(Settings.radius, 2) * Math.Pow(windSpeed, 3) * Settings.airDensity *
+                 Settings.efficiencyFactor) / 1000, 3);
             Send("GridManager", $"supply {_power}");
         }
 

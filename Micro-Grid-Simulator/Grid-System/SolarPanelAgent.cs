@@ -22,11 +22,11 @@ namespace Micro_Grid_Management.Micro_Grid
                     case "generate":
                         Send("Environment", "solar");
                         break;
-                    
+
                     case "inform":
                         GenerateOutput(Convert.ToDouble(parameters));
                         break;
-                    
+
                     case "stop":
                         Stop();
                         break;
@@ -41,7 +41,8 @@ namespace Micro_Grid_Management.Micro_Grid
 
         private void GenerateOutput(double solarRadiation)
         {
-            _power = Math.Round((Settings.area * Settings.efficiency * Settings.performanceRatio * solarRadiation)/1000, 3);
+            _power = Math.Round(
+                (Settings.area * Settings.efficiency * Settings.performanceRatio * solarRadiation) / 1000, 3);
             Send("GridManager", $"supply {_power}");
         }
 

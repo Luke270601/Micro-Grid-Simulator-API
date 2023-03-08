@@ -10,6 +10,7 @@ namespace Micro_Grid_Management.Micro_Grid
         public static int HouseCount = 10;
         public static double EnergyFromGrid = 0;
         public static int HoursRunning = 0;
+        public static string MonthOfTheYear = "";
         public static int DaysRunning = 0;
 
         public struct Packet
