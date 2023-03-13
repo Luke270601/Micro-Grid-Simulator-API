@@ -60,5 +60,4 @@ public class Simulation : ControllerBase
         Console.WriteLine("Finished");
         return new JsonResult(json);
     }
-    
 }
