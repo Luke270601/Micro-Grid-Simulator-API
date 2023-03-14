@@ -1,6 +1,8 @@
 ﻿using System.Text.Json;
 using Micro_Grid_Management.Micro_Grid;
+using Micro_Grid_Simulator.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Micro_Grid_Simulator.Controllers;
 
@@ -8,17 +10,20 @@ namespace Micro_Grid_Simulator.Controllers;
 [ApiController]
 public class GetSimData : ControllerBase
 {
-    [HttpGet("GetNames")]
-    public List<string> GetDataCount()
+    
+    private readonly SimulationsContext _simulationsContext;
+
+    public GetSimData(SimulationsContext simulationsContext)
     {
-        List<string> list = new List<string>();
+        _simulationsContext = simulationsContext;
+    }
 
-        for (int i = 0; i < 10; i++)
-        {
-            list.Add("Simulation " + (i+1));
-        }
 
-        return list;
+    [HttpGet("GetNames")]
+    public async Task<ActionResult<IEnumerable<SimulationsModel>>> GetAllProducts()
+    {
+        var products = await _simulationsContext.Simulations.ToListAsync();
+        return Ok(products);
     }
     
     [HttpGet("GetData/{name}")]

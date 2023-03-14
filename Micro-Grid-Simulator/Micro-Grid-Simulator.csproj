@@ -24,7 +24,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="DB" />
       <Folder Include="Grid-System\PreviousSimulations" />
     </ItemGroup>
 

@@ -9,4 +9,7 @@ public class SimulationsContext : DbContext
         : base(options)
     {
     }
+    
+    public DbSet<SimulationsModel> Simulations { get; set; }
+
 }
