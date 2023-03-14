@@ -55,20 +55,6 @@ public class Simulation : ControllerBase
 
         env.Start();
         var json = JsonSerializer.Serialize(Settings.Packets);
-        var currentTime = DateTime.Now.ToString(@"dd-MM-yyyy h\:mmtt");
-        var path =
-            @"C:\Users\lukes\RiderProjects\Micro-Grid-Simulator\Micro-Grid-Simulator\Grid-System\PreviousSimulations\Simulation " +
-            currentTime + " " + turbineCount + " " + panelCount + " " + houseCount + ".json";
-        
-        System.IO.File.Create(path);
-        
-        Settings.Packets.Clear();
-        
-        if (System.IO.File.Exists(path))
-        {
-            Console.WriteLine("File Created");
-        }
-
         return new JsonResult(json);
     }
 }
