@@ -3,6 +3,7 @@ using ActressMas;
 using Micro_Grid_Management.Micro_Grid;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
+using Micro_Grid_Simulator.Model;
 
 namespace Micro_Grid_Simulator.Controllers;
 
@@ -10,6 +11,13 @@ namespace Micro_Grid_Simulator.Controllers;
 [ApiController]
 public class Simulation : ControllerBase
 {
+    private readonly SimulationsContext _simulationsContext;
+
+    public Simulation(SimulationsContext simulationsContext)
+    {
+        _simulationsContext = simulationsContext;
+    }
+
     [HttpGet]
     public JsonResult RunSim(int duration, int turbineCount, int panelCount, int houseCount, string monthOfTheYear)
     {
@@ -55,6 +63,13 @@ public class Simulation : ControllerBase
 
         env.Start();
         var json = JsonSerializer.Serialize(Settings.Packets);
+        var simulation = new SimulationsModel
+        {
+            Date = "Today", Data = json, TurbineCount = turbineCount, PanelCount = panelCount, HouseCount = houseCount
+        };
+
+        _simulationsContext.Simulations.Add(simulation);
+        _simulationsContext.SaveChanges();
         return new JsonResult(json);
     }
 }
