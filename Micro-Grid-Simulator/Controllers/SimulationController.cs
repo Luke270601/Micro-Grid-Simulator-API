@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Globalization;
+using System.Text.Json;
 using ActressMas;
 using Micro_Grid_Management.Micro_Grid;
 using Microsoft.AspNetCore.Mvc;
@@ -63,10 +64,14 @@ public class Simulation : ControllerBase
 
         env.Start();
         var json = JsonSerializer.Serialize(Settings.Packets);
+        
+        string localDate = Convert.ToString(DateTime.Now, CultureInfo.CurrentCulture);
+        
         var simulation = new SimulationsModel
         {
-            Date = "Today", Data = json, TurbineCount = turbineCount, PanelCount = panelCount, HouseCount = houseCount
+            Date = localDate, Data = json, TurbineCount = turbineCount, PanelCount = panelCount, HouseCount = houseCount
         };
+        
 
         _simulationsContext.Simulations.Add(simulation);
         _simulationsContext.SaveChanges();

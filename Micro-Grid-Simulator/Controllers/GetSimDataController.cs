@@ -10,7 +10,6 @@ namespace Micro_Grid_Simulator.Controllers;
 [ApiController]
 public class GetSimData : ControllerBase
 {
-    
     private readonly SimulationsContext _simulationsContext;
 
     public GetSimData(SimulationsContext simulationsContext)
@@ -22,14 +21,17 @@ public class GetSimData : ControllerBase
     [HttpGet("GetNames")]
     public async Task<ActionResult<IEnumerable<SimulationsModel>>> GetAllProducts()
     {
-        var products = await _simulationsContext.Simulations.ToListAsync();
-        return Ok(products);
+        var simulations = await _simulationsContext.Simulations.Select(s =>
+            new { s.SimId, s.Date, s.TurbineCount, s.PanelCount, s.HouseCount }).ToListAsync();
+        return Ok(simulations);
     }
-    
-    [HttpGet("GetData/{name}")]
-    public JsonResult GetSimInfo(string name)
+
+    [HttpGet("GetData/{simId}")]
+    public async Task<ActionResult<IEnumerable<SimulationsModel>>> GetSimInfo(int simId)
     {
-        var json = JsonSerializer.Serialize("Dog: dog");
-        return new JsonResult(json);
+        var simulations = await _simulationsContext.Simulations.Where(s => s.SimId == simId)
+            .Select(s => s.Data)
+            .ToListAsync();
+        return Ok(simulations);
     }
 }
