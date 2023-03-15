@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DaNxdEkplS0pYD7MjfqkiJmyFDaD9Y5AGoYsHwJHYxhATLzd9cndoS7X8a35Kx7MDusgAEqjVbO0xcfeWo4ZiA==",
+  "dgSpecHash": "YUAmMz0e100QIf7Snw4JPE2gxCvEyubLVtO6yRasI1nR8tPx1a9fQWCXHMZi9GOP+gVdyps+y868MPpdPls0ew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj",
+  "projectFilePath": "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator-API\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lukes\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\lukes\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.2\\microsoft.aspnetcore.openapi.7.0.2.nupkg.sha512",

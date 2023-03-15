@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj": {}
+    "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator-API\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj": {}
   },
   "projects": {
     "C:\\Users\\lukes\\Documents\\Uni\\Y4\\TR1\\MAS\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj": {
@@ -19,14 +19,14 @@
         "net461": {}
       }
     },
-    "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj": {
+    "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator-API\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj",
+        "projectUniqueName": "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator-API\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj",
         "projectName": "Micro-Grid-Simulator",
-        "projectPath": "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj",
+        "projectPath": "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator-API\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj",
         "packagesPath": "C:\\Users\\lukes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator\\Micro-Grid-Simulator\\obj\\",
+        "outputPath": "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator-API\\Micro-Grid-Simulator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lukes\\AppData\\Roaming\\NuGet\\NuGet.Config",

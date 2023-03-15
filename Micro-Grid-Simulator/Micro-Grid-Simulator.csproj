@@ -23,8 +23,4 @@
       <ProjectReference Include="..\..\..\Documents\Uni\Y4\TR1\MAS\Source Code and Examples\ActressMas Framework\ActressMas\ActressMas.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Grid-System\PreviousSimulations" />
-    </ItemGroup>
-
 </Project>

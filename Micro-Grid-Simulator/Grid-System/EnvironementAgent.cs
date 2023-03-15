@@ -65,7 +65,7 @@ namespace Micro_Grid_Management.Micro_Grid
         {
             using (var reader =
                    new StreamReader(
-                       @"C:\Users\lukes\RiderProjects\Micro-Grid-Simulator\Micro-Grid-Simulator\Grid-System\SolarData\" +
+                       @"C:\Users\lukes\RiderProjects\Micro-Grid-Simulator-API\Micro-Grid-Simulator\Grid-System\SolarData\" +
                        Settings.MonthOfTheYear + "SolarData.csv"))
             {
                 while (!reader.EndOfStream)
@@ -86,7 +86,7 @@ namespace Micro_Grid_Management.Micro_Grid
         {
             using (var reader =
                    new StreamReader(
-                       @"C:\Users\lukes\RiderProjects\Micro-Grid-Simulator\Micro-Grid-Simulator\Grid-System\WIndData\" +
+                       @"C:\Users\lukes\RiderProjects\Micro-Grid-Simulator-API\Micro-Grid-Simulator\Grid-System\WIndData\" +
                        Settings.MonthOfTheYear + "WindData.csv"))
             {
                 while (!reader.EndOfStream)
