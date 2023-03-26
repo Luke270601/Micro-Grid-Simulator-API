@@ -64,6 +64,7 @@ public class Simulation : ControllerBase
 
         env.Start();
         var json = JsonSerializer.Serialize(Settings.Packets);
+        Settings.Packets.Clear();
         
         string localDate = Convert.ToString(DateTime.Now, CultureInfo.CurrentCulture);
         

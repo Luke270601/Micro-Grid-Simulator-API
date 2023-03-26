@@ -27,11 +27,11 @@ public class GetSimData : ControllerBase
     }
 
     [HttpGet("GetData/{simId}")]
-    public async Task<ActionResult<IEnumerable<SimulationsModel>>> GetSimInfo(int simId)
+    public JsonResult GetSimInfo(int simId)
     {
-        var simulations = await _simulationsContext.Simulations.Where(s => s.SimId == simId)
+        var simulations = _simulationsContext.Simulations.Where(s => s.SimId == simId)
             .Select(s => s.Data)
-            .ToListAsync();
-        return Ok(simulations);
+            .Single();
+        return new JsonResult(simulations);
     }
 }
