@@ -22,6 +22,11 @@ namespace Micro_Grid_Management.Micro_Grid
 
         public override void Act(Message message)
         {
+            if (Settings.HoursRunning == 24)
+            {
+                Settings.HoursRunning = 0;
+                Settings.DaysDone++;
+            }
             string content = "";
             switch (message.Content)
             {

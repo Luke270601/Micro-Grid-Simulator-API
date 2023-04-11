@@ -9,7 +9,6 @@ namespace Micro_Grid_Management.Micro_Grid
         private int _windTurbineCount = Settings.TurbineCount;
         private double _supply = 0;
         private double _demand = 0;
-        private int _hoursRemaining = Settings.HoursRunning;
         private bool _finished = false;
         private bool _tookFromGrid = false;
         private Settings.Packet _packet = new Settings.Packet();
@@ -24,7 +23,7 @@ namespace Micro_Grid_Management.Micro_Grid
             try
             {
                 message.Parse(out var action, out string parameters);
-                if (Settings.HoursRunning < Settings.DaysRunning * 24)
+                if (Settings.HoursRunning < 24 && Settings.DaysDone < Settings.DaysRunning)
                 {
                     switch (action)
                     {
@@ -82,6 +81,7 @@ namespace Micro_Grid_Management.Micro_Grid
                             break;
                     }
                 }
+
                 else
                 {
                     _tookFromGrid = false;
@@ -120,7 +120,7 @@ namespace Micro_Grid_Management.Micro_Grid
                 }
 
                 _finished = false;
-                Settings.HoursRunning = _hoursRemaining;
+                Settings.DaysDone = 0;
                 Send("BatteryStorage", "stop");
                 Send("Environment", "stop");
                 Stop();

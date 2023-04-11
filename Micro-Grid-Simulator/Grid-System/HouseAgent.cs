@@ -5,7 +5,7 @@ namespace Micro_Grid_Management.Micro_Grid
     public class HouseAgent : Agent
     {
         private double demand = 0;
-
+        private int noMessageCount = 0;
         public override void Setup()
         {
             Send("Environment", "house");
@@ -13,6 +13,7 @@ namespace Micro_Grid_Management.Micro_Grid
 
         public override void Act(Message message)
         {
+            noMessageCount = 0;
             try
             {
                 message.Parse(out string action, out string parameters);
@@ -47,7 +48,13 @@ namespace Micro_Grid_Management.Micro_Grid
 
         public override void ActDefault()
         {
+            noMessageCount++;
             demand = 0;
+
+            if (noMessageCount > 2)
+            {
+                Stop();
+            }
         }
     }
 }
