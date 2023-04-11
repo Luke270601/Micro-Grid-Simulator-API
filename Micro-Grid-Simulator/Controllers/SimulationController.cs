@@ -70,7 +70,7 @@ public class Simulation : ControllerBase
         
         var simulation = new SimulationsModel
         {
-            Date = localDate, Data = json, TurbineCount = turbineCount, PanelCount = panelCount, HouseCount = houseCount
+            Date = localDate, Data = json, TurbineCount = turbineCount, PanelCount = panelCount, HouseCount = houseCount, Duration = duration
         };
         
 

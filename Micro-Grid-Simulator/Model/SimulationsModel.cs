@@ -11,4 +11,6 @@ public class SimulationsModel
     public int TurbineCount { get; set; }
     public int PanelCount { get; set; }
     public int HouseCount { get; set; }
+    
+    public int Duration { get; set; }
 }

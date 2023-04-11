@@ -22,7 +22,7 @@ public class GetSimData : ControllerBase
     public async Task<ActionResult<IEnumerable<SimulationsModel>>> GetAllProducts()
     {
         var simulations = await _simulationsContext.Simulations.Select(s =>
-            new { s.SimId, s.Date, s.TurbineCount, s.PanelCount, s.HouseCount }).ToListAsync();
+            new { s.SimId, s.Date, s.TurbineCount, s.PanelCount, s.HouseCount, s.Duration }).ToListAsync();
         return Ok(simulations);
     }
 
