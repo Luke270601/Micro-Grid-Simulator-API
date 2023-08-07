@@ -24,4 +24,8 @@
       <ProjectReference Include="..\..\Source Code and Examples\ActressMas Framework\ActressMas\ActressMas.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Micro-Grid-Simulations.sqlite" />
+    </ItemGroup>
+
 </Project>
