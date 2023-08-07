@@ -45,9 +45,18 @@ namespace Micro_Grid_Management.Micro_Grid
         {
             //Formula P = π/2 * r² * v³ * ρ * η;
             //Wind speed is in m/s
-            _power = Math.Round(
-                (Math.PI / 2 * Math.Pow(Settings.radius, 2) * Math.Pow(windSpeed, 3) * Settings.airDensity *
-                 Settings.efficiencyFactor) / 1000, 3);
+            //Conditions for cut in speed
+            if (windSpeed is > 3 and < 25)
+            {
+                _power = Math.Round(
+                    (Math.PI / 2 * Math.Pow(Settings.radius, 2) * Math.Pow(windSpeed, 3) * Settings.airDensity *
+                     Settings.efficiencyFactor) / 1000, 3);
+            }
+            else
+            {
+                _power = 0;
+            }
+
             Send("GridManager", $"supply {_power}");
         }
 

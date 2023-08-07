@@ -1779,8 +1779,8 @@
     },
     "ActressMas/1.0.0": {
       "type": "project",
-      "path": "../../../Documents/Uni/Y4/TR1/MAS/Source Code and Examples/ActressMas Framework/ActressMas/ActressMas.csproj",
-      "msbuildProject": "../../../Documents/Uni/Y4/TR1/MAS/Source Code and Examples/ActressMas Framework/ActressMas/ActressMas.csproj"
+      "path": "../../Source Code and Examples/ActressMas Framework/ActressMas/ActressMas.csproj",
+      "msbuildProject": "../../Source Code and Examples/ActressMas Framework/ActressMas/ActressMas.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1823,6 +1823,9 @@
           "projectReferences": {
             "C:\\Users\\lukes\\Documents\\Uni\\Y4\\TR1\\MAS\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj": {
               "projectPath": "C:\\Users\\lukes\\Documents\\Uni\\Y4\\TR1\\MAS\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj"
+            },
+            "C:\\Users\\lukes\\RiderProjects\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj": {
+              "projectPath": "C:\\Users\\lukes\\RiderProjects\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj"
             }
           }
         }
@@ -1883,7 +1886,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.104\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.109\\RuntimeIdentifierGraph.json"
       }
     }
   }

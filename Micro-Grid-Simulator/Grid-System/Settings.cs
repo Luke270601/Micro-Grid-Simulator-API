@@ -13,6 +13,7 @@ namespace Micro_Grid_Management.Micro_Grid
         public static string MonthOfTheYear = "";
         public static int DaysRunning = 0;
         public static int DaysDone = 0;
+        public static double SupplementedFromBattery = 0;
 
         public struct Packet
         {

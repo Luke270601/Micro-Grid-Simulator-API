@@ -24,7 +24,6 @@ namespace Micro_Grid_Management.Micro_Grid
                     case "supply":
                         supplyDemand = Convert.ToDouble(parameters);
                         supply += supplyDemand;
-                        Console.WriteLine("Currently Stored: " + supply);
                         packet = new Settings.Packet("Battery", "Stored: " + supply);
                         Settings.Packets.Add(packet);
                         Send("GridManager", "energy_stored");
@@ -35,6 +34,7 @@ namespace Micro_Grid_Management.Micro_Grid
                         if (supply < supplyDemand)
                         {
                             supplyDemand -= supply;
+                            Settings.SupplementedFromBattery += supply;
                             Send("GridManager", $"demand_remaining {supplyDemand}");
                             packet = new Settings.Packet("Battery", "Remaining: " + supplyDemand);
                             Settings.Packets.Add(packet);
@@ -43,6 +43,7 @@ namespace Micro_Grid_Management.Micro_Grid
                         else
                         {
                             supply -= supplyDemand;
+                            Settings.SupplementedFromBattery += supplyDemand;
                             Send("GridManager", "demand_met");
                             packet = new Settings.Packet("Battery", "Removed: " + supplyDemand);
                             Settings.Packets.Add(packet);

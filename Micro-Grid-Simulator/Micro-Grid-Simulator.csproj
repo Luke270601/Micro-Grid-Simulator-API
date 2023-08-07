@@ -21,6 +21,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Documents\Uni\Y4\TR1\MAS\Source Code and Examples\ActressMas Framework\ActressMas\ActressMas.csproj" />
+      <ProjectReference Include="..\..\Source Code and Examples\ActressMas Framework\ActressMas\ActressMas.csproj" />
     </ItemGroup>
 
 </Project>

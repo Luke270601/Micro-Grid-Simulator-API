@@ -45,6 +45,9 @@
             "projectReferences": {
               "C:\\Users\\lukes\\Documents\\Uni\\Y4\\TR1\\MAS\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj": {
                 "projectPath": "C:\\Users\\lukes\\Documents\\Uni\\Y4\\TR1\\MAS\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj"
+              },
+              "C:\\Users\\lukes\\RiderProjects\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj": {
+                "projectPath": "C:\\Users\\lukes\\RiderProjects\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj"
               }
             }
           }
@@ -105,8 +108,23 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.109\\RuntimeIdentifierGraph.json"
         }
+      }
+    },
+    "C:\\Users\\lukes\\RiderProjects\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lukes\\RiderProjects\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj",
+        "projectName": "ActressMas",
+        "projectPath": "C:\\Users\\lukes\\RiderProjects\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
       }
     }
   }
