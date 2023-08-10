@@ -1,3 +1,7 @@
+using Micro_Grid_Simulator.Model;
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,7 +15,16 @@ builder.Services.AddCors(p => p.AddPolicy("corspolicy",
     build => { build.WithOrigins("https://localhost:44438").AllowAnyMethod().AllowAnyHeader();}));
 
 
+builder.Configuration.AddJsonFile("appsettings.json", optional: false);
+
+
+builder.Services.AddDbContext<SimulationsContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"), 
+        b => b.MigrationsAssembly("Micro_Grid_Simulator")));
+
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

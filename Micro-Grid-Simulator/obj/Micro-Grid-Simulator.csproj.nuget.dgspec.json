@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj": {}
+    "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator-API\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj": {}
   },
   "projects": {
     "C:\\Users\\lukes\\Documents\\Uni\\Y4\\TR1\\MAS\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj": {
@@ -19,14 +19,14 @@
         "net461": {}
       }
     },
-    "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj": {
+    "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator-API\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj",
+        "projectUniqueName": "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator-API\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj",
         "projectName": "Micro-Grid-Simulator",
-        "projectPath": "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj",
+        "projectPath": "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator-API\\Micro-Grid-Simulator\\Micro-Grid-Simulator.csproj",
         "packagesPath": "C:\\Users\\lukes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator\\Micro-Grid-Simulator\\obj\\",
+        "outputPath": "C:\\Users\\lukes\\RiderProjects\\Micro-Grid-Simulator-API\\Micro-Grid-Simulator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lukes\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,9 @@
             "projectReferences": {
               "C:\\Users\\lukes\\Documents\\Uni\\Y4\\TR1\\MAS\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj": {
                 "projectPath": "C:\\Users\\lukes\\Documents\\Uni\\Y4\\TR1\\MAS\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj"
+              },
+              "C:\\Users\\lukes\\RiderProjects\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj": {
+                "projectPath": "C:\\Users\\lukes\\RiderProjects\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj"
               }
             }
           }
@@ -62,6 +65,24 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0-preview.1.23111.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite.Core": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0-preview.1.23111.4, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -87,8 +108,23 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.109\\RuntimeIdentifierGraph.json"
         }
+      }
+    },
+    "C:\\Users\\lukes\\RiderProjects\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lukes\\RiderProjects\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj",
+        "projectName": "ActressMas",
+        "projectPath": "C:\\Users\\lukes\\RiderProjects\\Source Code and Examples\\ActressMas Framework\\ActressMas\\ActressMas.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
       }
     }
   }

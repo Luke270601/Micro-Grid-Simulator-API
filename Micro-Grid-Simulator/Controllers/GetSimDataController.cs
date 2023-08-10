@@ -1,6 +1,8 @@
 ﻿using System.Text.Json;
 using Micro_Grid_Management.Micro_Grid;
+using Micro_Grid_Simulator.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Micro_Grid_Simulator.Controllers;
 
@@ -8,23 +10,28 @@ namespace Micro_Grid_Simulator.Controllers;
 [ApiController]
 public class GetSimData : ControllerBase
 {
-    [HttpGet("GetNames")]
-    public List<string> GetDataCount()
+    private readonly SimulationsContext _simulationsContext;
+
+    public GetSimData(SimulationsContext simulationsContext)
     {
-        List<string> list = new List<string>();
-
-        for (int i = 0; i < 10; i++)
-        {
-            list.Add("Simulation " + (i+1));
-        }
-
-        return list;
+        _simulationsContext = simulationsContext;
     }
-    
-    [HttpGet("GetData/{name}")]
-    public JsonResult GetSimInfo(string name)
+
+
+    [HttpGet("GetNames")]
+    public async Task<ActionResult<IEnumerable<SimulationsModel>>> GetAllProducts()
     {
-        var json = JsonSerializer.Serialize("Dog: dog");
-        return new JsonResult(json);
+        var simulations = await _simulationsContext.Simulations.Select(s =>
+            new { s.SimId, s.Date, s.TurbineCount, s.PanelCount, s.HouseCount, s.Duration }).ToListAsync();
+        return Ok(simulations);
+    }
+
+    [HttpGet("GetData/{simId}")]
+    public JsonResult GetSimInfo(int simId)
+    {
+        var simulations = _simulationsContext.Simulations.Where(s => s.SimId == simId)
+            .Select(s => s.Data)
+            .Single();
+        return new JsonResult(simulations);
     }
 }

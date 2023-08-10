@@ -1,7 +1,10 @@
-﻿using System.Text.Json;
+﻿using System.Globalization;
+using System.Text.Json;
 using ActressMas;
 using Micro_Grid_Management.Micro_Grid;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using Micro_Grid_Simulator.Model;
 
 namespace Micro_Grid_Simulator.Controllers;
 
@@ -9,6 +12,12 @@ namespace Micro_Grid_Simulator.Controllers;
 [ApiController]
 public class Simulation : ControllerBase
 {
+    private readonly SimulationsContext _simulationsContext;
+
+    public Simulation(SimulationsContext simulationsContext)
+    {
+        _simulationsContext = simulationsContext;
+    }
 
     [HttpGet]
     public JsonResult RunSim(int duration, int turbineCount, int panelCount, int houseCount, string monthOfTheYear)
@@ -22,23 +31,23 @@ public class Simulation : ControllerBase
 
         //Sets up the ActressMas environment agent and the agent used to inform house agents
         var env = new EnvironmentMas(randomOrder: false, parallel: false);
-            
+
         //Creates and instance of the energy distribution, battery agent and grid management in the environment
         var gridManager = new GridManager();
         var batteryAgent = new BatteryAgent();
         var environmentAgent = new EnvironmentAgent();
-            
+
         env.Add(gridManager, "GridManager");
         env.Add(batteryAgent, "BatteryStorage");
         env.Add(environmentAgent, "Environment");
-            
+
         //Adds houses to environment 
         for (int i = 1; i <= Settings.HouseCount; i++)
         {
             var houseAgent = new HouseAgent();
             env.Add(houseAgent, $"houseAgent{i:D2}");
         }
-            
+
         //Adds solar panels to environment 
         for (int i = 1; i <= Settings.PanelCount; i++)
         {
@@ -52,12 +61,21 @@ public class Simulation : ControllerBase
             var turbineAgent = new WindTurbineAgent();
             env.Add(turbineAgent, $"turbine{i:D2}");
         }
-        
-        env.Start();
 
+        env.Start();
         var json = JsonSerializer.Serialize(Settings.Packets);
         Settings.Packets.Clear();
-        Console.WriteLine("Finished");
+        
+        string localDate = Convert.ToString(DateTime.Now, CultureInfo.CurrentCulture);
+        
+        var simulation = new SimulationsModel
+        {
+            Date = localDate, Data = json, TurbineCount = turbineCount, PanelCount = panelCount, HouseCount = houseCount, Duration = duration
+        };
+        
+
+        _simulationsContext.Simulations.Add(simulation);
+        _simulationsContext.SaveChanges();
         return new JsonResult(json);
     }
 }

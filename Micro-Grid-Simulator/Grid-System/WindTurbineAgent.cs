@@ -5,6 +5,7 @@ namespace Micro_Grid_Management.Micro_Grid
     public class WindTurbineAgent : Agent
     {
         private double _power = 0;
+        private int noMessageCount = 0;
         private Random _windSpeed = new Random();
 
         public override void Setup()
@@ -14,6 +15,7 @@ namespace Micro_Grid_Management.Micro_Grid
 
         public override void Act(Message message)
         {
+            noMessageCount = 0;
             try
             {
                 message.Parse(out string action, out string parameters);
@@ -43,15 +45,29 @@ namespace Micro_Grid_Management.Micro_Grid
         {
             //Formula P = π/2 * r² * v³ * ρ * η;
             //Wind speed is in m/s
-            _power = Math.Round(
-                (Math.PI / 2 * Math.Pow(Settings.radius, 2) * Math.Pow(windSpeed, 3) * Settings.airDensity *
-                 Settings.efficiencyFactor) / 1000, 3);
+            //Conditions for cut in speed
+            if (windSpeed is > 3 and < 25)
+            {
+                _power = Math.Round(
+                    (Math.PI / 2 * Math.Pow(Settings.radius, 2) * Math.Pow(windSpeed, 3) * Settings.airDensity *
+                     Settings.efficiencyFactor) / 1000, 3);
+            }
+            else
+            {
+                _power = 0;
+            }
+
             Send("GridManager", $"supply {_power}");
         }
 
         public override void ActDefault()
         {
+            noMessageCount++;
             _power = 0;
+            if (noMessageCount > 2)
+            {
+                Stop();
+            }
         }
     }
 }
